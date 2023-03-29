@@ -1,0 +1,4 @@
+<div *ngFor="let event of events$ | async">
+  <p>time: {{ event.start.dateTime }}</p>
+  <p>title: {{ event.summary }}</p>
+</div>
