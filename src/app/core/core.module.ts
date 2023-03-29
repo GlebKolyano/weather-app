@@ -7,10 +7,18 @@ import { AuthModule } from '../auth/auth.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CalendarModule } from '../calendar/calendar.module';
 import { httpInterceptorProviders } from './interceptors/interceptors';
+import { WeatherModule } from '../weather/weather.module';
 
 @NgModule({
   declarations: [MainPageComponent],
-  imports: [BrowserModule, CommonModule, CoreRoutingModule, CalendarModule, AuthModule],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    CoreRoutingModule,
+    CalendarModule,
+    AuthModule,
+    WeatherModule,
+  ],
   providers: [httpInterceptorProviders],
 })
 export class CoreModule {}
