@@ -6,16 +6,22 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot({}, {}),
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    RouterModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
