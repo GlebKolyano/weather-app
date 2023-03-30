@@ -1,7 +1,7 @@
 import { IForecastState } from '../models/forecast.models';
 
 const initForecastState: IForecastState = {
-  forecastDay: [],
+  forecastDays: [],
   error: null,
   isLoading: false,
 };

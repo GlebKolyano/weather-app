@@ -2,13 +2,16 @@ import { createSelector } from '@ngrx/store';
 import { selectFeatureWeather } from '..';
 import { IForecastDay, IForecastHour } from '../models/forecast.models';
 
-const selectForcastDaily = createSelector(
+const selectDailyForecast = createSelector(
   selectFeatureWeather,
-  ({ forecast }): IForecastDay[] => forecast.forecastDay,
+  ({ forecast }): IForecastDay[] => forecast.forecastDays,
 );
 
-const selectForcastHourlyForToday = createSelector(
+const selectHourlyForecastForToday = createSelector(
   selectFeatureWeather,
-  ({ forecast }): IForecastHour[] => forecast.forecastDay[0].hour,
+  ({ forecast }): IForecastHour[] => {
+    if (forecast.forecastDays.length) return forecast.forecastDays[0].hour;
+    return [];
+  },
 );
-export { selectForcastDaily, selectForcastHourlyForToday };
+export { selectDailyForecast, selectHourlyForecastForToday };

@@ -1,5 +1,5 @@
 interface IForecastState {
-  forecastDay: IForecastDay[];
+  forecastDays: IForecastDay[];
   error: string | null;
   isLoading: boolean;
 }

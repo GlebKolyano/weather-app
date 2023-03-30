@@ -13,9 +13,20 @@ import { weatherReducer } from './store';
 import { ForecastEffects } from './store/effects/forecast.effects';
 import { LocationEffects } from './store/effects/location.effects';
 import { CurrentLocationComponent } from './components/current-location/current-location.component';
+import { DailyForecastComponent } from './components/daily-forecast/daily-forecast.component';
+import { HourlyForecastComponent } from './components/hourly-forecast/hourly-forecast.component';
+import { DayForecastItemComponent } from './components/day-forecast-item/day-forecast-item.component';
+import { HourForecastItemComponent } from './components/hour-forecast-item/hour-forecast-item.component';
 
 @NgModule({
-  declarations: [CitySelectorComponent, CurrentLocationComponent],
+  declarations: [
+    CitySelectorComponent,
+    CurrentLocationComponent,
+    DailyForecastComponent,
+    HourlyForecastComponent,
+    DayForecastItemComponent,
+    HourForecastItemComponent,
+  ],
   imports: [
     CommonModule,
     StoreModule.forFeature('weather', weatherReducer),
@@ -26,6 +37,11 @@ import { CurrentLocationComponent } from './components/current-location/current-
     ReactiveFormsModule,
   ],
   providers: [WeatherService],
-  exports: [CitySelectorComponent, CurrentLocationComponent],
+  exports: [
+    CitySelectorComponent,
+    CurrentLocationComponent,
+    DailyForecastComponent,
+    HourlyForecastComponent,
+  ],
 })
 export class WeatherModule {}
