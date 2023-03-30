@@ -1,12 +1,11 @@
 import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, filter, startWith } from 'rxjs/operators';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, filter, takeUntil } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectCities } from '../../store/selectors/cities.selectors';
 import { getCities } from '../../store/actions/cities.actions';
-import { ICity } from '../../store/models/cities.models';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { getForecast } from '../../store/actions/forecast.actions';
+import { Subject } from 'rxjs';
 
 export interface User {
   name: string;
@@ -18,29 +17,37 @@ export interface User {
   styleUrls: ['./city-selector.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CitySelectorComponent implements OnInit {
+export class CitySelectorComponent implements OnInit, OnDestroy {
   public cityInput = new FormControl<string>('');
 
   public cities$ = this.store.select(selectCities);
+  private destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private store: Store) {}
 
-  public ngOnInit() {
+  public ngOnInit(): void {
+    this.subscribeToInputChanges();
+  }
+
+  private subscribeToInputChanges(): void {
     this.cityInput.valueChanges
       .pipe(
-        startWith(''),
         filter((cityName) => cityName!.length >= 3),
         debounceTime(500),
         distinctUntilChanged(),
+        takeUntil(this.destroy$),
       )
-      .subscribe((cityName) => this.store.dispatch(getCities({ cityName: cityName as string })));
+      .subscribe((cityName) => {
+        this.store.dispatch(getCities({ cityName: cityName as string }));
+      });
   }
 
-  public getForecast({ option: { value } }: MatAutocompleteSelectedEvent): void {
-    this.store.dispatch(getForecast({ cityName: value.name }));
+  public onSelectOption(cityName: string): void {
+    this.store.dispatch(getForecast({ cityName }));
   }
 
-  public displaySelectedCity(city: ICity): string {
-    return city && city.name ? city.name : '';
+  public ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 }

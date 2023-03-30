@@ -2,8 +2,8 @@
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>City</mat-label>
     <input type="text" matInput [formControl]="cityInput" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displaySelectedCity" (optionSelected)="getForecast($event)">
-      <mat-option *ngFor="let city of cities$ | async" [value]="city">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectOption($event.option.value)">
+      <mat-option *ngFor="let city of cities$ | async" [value]="city.name">
         {{city.name}}, {{city.country}}
       </mat-option>
     </mat-autocomplete>
