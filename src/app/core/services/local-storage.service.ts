@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class LocalService {
+export class LocalStorageService {
   public get(fieldName: string): string {
     return localStorage.getItem(fieldName) as string;
   }

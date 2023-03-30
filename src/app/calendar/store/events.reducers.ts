@@ -9,7 +9,6 @@ const eventsReducer = createReducer(
     return { ...state, isLoading: true };
   }),
   on(getEventsSuccess, (state, { events }): IEventsState => {
-    console.log('events', events);
     return { ...state, isLoading: false, events };
   }),
   on(getEventsError, (state, { error }): IEventsState => {

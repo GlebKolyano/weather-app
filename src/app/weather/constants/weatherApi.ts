@@ -6,7 +6,6 @@ enum WeatherUrls {
 }
 
 const DEFAULT_FORECAST_PARAMS = {
-  q: 'Minsk',
   days: 7,
   aqi: 'no',
   alerts: 'no',

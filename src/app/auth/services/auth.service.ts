@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { GoogleEnv } from 'src/app/constants/googleEnv';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from '@angular/fire/auth';
-import { LocalService } from 'src/app/core/services/local.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ import { LocalService } from 'src/app/core/services/local.service';
 export class AuthService {
   public authState$ = new BehaviorSubject<boolean>(this.isAuthorized());
 
-  constructor(private fireauth: AngularFireAuth, private localService: LocalService) {}
+  constructor(private fireauth: AngularFireAuth, private localService: LocalStorageService) {}
 
   public get accessToken(): string {
     return this.localService.get('token');

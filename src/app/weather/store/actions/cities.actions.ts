@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { CitiesActions, ICity, IWeatherError } from './weather.models';
+import { CitiesActions, ICitiesError, ICity } from '../models/cities.models';
 
 const getCities = createAction(CitiesActions.GET_CITIES, props<{ cityName: string }>());
 const getCitiesSuccess = createAction(
@@ -8,7 +8,7 @@ const getCitiesSuccess = createAction(
 );
 const getCitiesError = createAction(
   CitiesActions.GET_CITIES_ERROR,
-  props<{ error: IWeatherError }>(),
+  props<{ error: ICitiesError }>(),
 );
 
 export { getCities, getCitiesSuccess, getCitiesError };

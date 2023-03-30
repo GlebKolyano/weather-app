@@ -2,9 +2,9 @@ import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, startWith } from 'rxjs/operators';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectCities } from '../../store/weather.selectors';
-import { getCities } from '../../store/weather.actions';
-import { ICity } from '../../store/weather.models';
+import { selectCities } from '../../store/selectors/cities.selectors';
+import { getCities } from '../../store/actions/cities.actions';
+import { ICity } from '../../store/models/cities.models';
 
 export interface User {
   name: string;

@@ -21,7 +21,7 @@ enum EventsActions {
 }
 
 interface IEventsError {
-  statusCode: string;
+  status: number;
   message: string;
 }
 

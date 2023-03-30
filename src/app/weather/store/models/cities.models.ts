@@ -1,6 +1,6 @@
-interface IWeatherState {
+interface ICitiesState {
   cities: ICity[];
-  error: IWeatherError | null;
+  error: ICitiesError | null;
   isLoading: boolean;
 }
 
@@ -15,10 +15,10 @@ enum CitiesActions {
   GET_CITIES_ERROR = '[Weather] Get Cities error',
 }
 
-interface IWeatherError {
+interface ICitiesError {
   status: number;
   message: string;
 }
 
 export { CitiesActions };
-export type { IWeatherState, IWeatherError, ICity };
+export type { ICitiesState, ICitiesError, ICity };
