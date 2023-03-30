@@ -1,0 +1,13 @@
+<!-- interface IForecastHour {
+time: string;
+temp_c: number;
+condition: {
+text: string;
+icon: string;
+code: number;
+};
+} -->
+
+<p>time: {{ hourForecast.time}}</p>
+<img src="{{hourForecast.condition.icon}}" alt="icon">
+<p>temp_c: {{ hourForecast.temp_c}}</p>
