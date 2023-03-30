@@ -10,7 +10,7 @@ import {
 import { Observable, of, tap } from 'rxjs';
 
 import { RequestCachingService } from '../services/request-caching.service';
-import { WeatherUrls } from 'src/app/weather/constants/weatherApi';
+import { WeatherUrls } from 'src/app/weather/constants/weather-api';
 
 @Injectable()
 export class RequestCachingInterceptor implements HttpInterceptor {

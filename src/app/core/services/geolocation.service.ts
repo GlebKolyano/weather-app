@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { GEOLOCATION_URL } from '../constants/geolocationApi';
+import { GEOLOCATION_URL } from '../constants/geolocation-api';
 import { IGeolocationResponse } from '../models/geolocation.models';
 
 @Injectable({

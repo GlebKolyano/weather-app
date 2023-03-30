@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { DEFAULT_FORECAST_PARAMS, WeatherUrls } from '../constants/weatherApi';
+import { DEFAULT_FORECAST_PARAMS, WeatherUrls } from '../constants/weather-api';
 import { ICity } from '../store/models/cities.models';
 import { IForecastResponse } from '../store/models/forecast.models';
 import { ILocation, ILocationResponse } from '../store/models/location.models';

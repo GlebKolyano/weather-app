@@ -7,7 +7,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CalendarApiEndpoints, CalendarUrls } from 'src/app/calendar/constants/calendarApi';
+import { CalendarApiEndpoints, CalendarUrls } from 'src/app/calendar/constants/calendar-api';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Injectable()

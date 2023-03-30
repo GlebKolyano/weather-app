@@ -9,7 +9,6 @@ const locationReducer = createReducer(
     return { ...state, isLoading: true };
   }),
   on(getLocationSuccess, (state, { location }): ILocationState => {
-    console.log(location);
     return { ...state, isLoading: false, location };
   }),
   on(getLocationError, (state): ILocationState => {

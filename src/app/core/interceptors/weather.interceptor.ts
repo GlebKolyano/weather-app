@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { WeatherUrls, WEATHER_API_KEY } from 'src/app/weather/constants/weatherApi';
+import { WeatherUrls, WEATHER_API_KEY } from 'src/app/weather/constants/weather-api';
 
 @Injectable()
 export class WeatherInterceptor implements HttpInterceptor {

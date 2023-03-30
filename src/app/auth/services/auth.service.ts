@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { GoogleEnv } from 'src/app/constants/googleEnv';
+import { GoogleEnv } from 'src/app/constants/google-env';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from '@angular/fire/auth';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { CalendarApiEndpoints, DEFAULT_EVENTS_PARAMS } from '../constants/calendarApi';
+import { CalendarApiEndpoints, DEFAULT_EVENTS_PARAMS } from '../constants/calendar-api';
 import { IEvent, IResponseEvents } from '../store/events.models';
 import getBasicFieldsFromEvent from '../utils/getBasicFieldsFromEvent';
 
