@@ -6,6 +6,7 @@ import { selectCities } from '../../store/selectors/cities.selectors';
 import { getCities } from '../../store/actions/cities.actions';
 import { getForecast } from '../../store/actions/forecast.actions';
 import { Subject } from 'rxjs';
+import { GeolocationService } from 'src/app/core/services/geolocation.service';
 
 export interface User {
   name: string;
@@ -23,13 +24,13 @@ export class CitySelectorComponent implements OnInit, OnDestroy {
   public cities$ = this.store.select(selectCities);
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private store: Store) {}
-
+  constructor(private store: Store, private geolocationService: GeolocationService) {}
   public ngOnInit(): void {
-    this.subscribeToInputChanges();
+    this.getCitiesByInput();
+    this.sendRequestsByUserPosition();
   }
 
-  private subscribeToInputChanges(): void {
+  private getCitiesByInput(): void {
     this.cityInput.valueChanges
       .pipe(
         filter((cityName) => cityName!.length >= 3),
@@ -40,6 +41,13 @@ export class CitySelectorComponent implements OnInit, OnDestroy {
       .subscribe((cityName) => {
         this.store.dispatch(getCities({ cityName: cityName as string }));
       });
+  }
+
+  private sendRequestsByUserPosition(): void {
+    this.geolocationService.cityOfUser.pipe(takeUntil(this.destroy$)).subscribe((city) => {
+      this.cityInput.setValue(city);
+      this.onSelectOption(city);
+    });
   }
 
   public onSelectOption(cityName: string): void {
