@@ -10,19 +10,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { weatherReducer } from './store';
+import { ForecastEffects } from './store/effects/forecast.effects';
+import { LocationEffects } from './store/effects/location.effects';
+import { CurrentLocationComponent } from './components/current-location/current-location.component';
 
 @NgModule({
-  declarations: [CitySelectorComponent],
+  declarations: [CitySelectorComponent, CurrentLocationComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('weather', weatherReducer),
-    EffectsModule.forFeature([CitiesEffects]),
+    EffectsModule.forFeature([CitiesEffects, ForecastEffects, LocationEffects]),
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
   ],
   providers: [WeatherService],
-  exports: [CitySelectorComponent],
+  exports: [CitySelectorComponent, CurrentLocationComponent],
 })
 export class WeatherModule {}

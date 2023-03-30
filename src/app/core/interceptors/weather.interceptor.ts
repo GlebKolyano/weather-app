@@ -9,7 +9,9 @@ export class WeatherInterceptor implements HttpInterceptor {
     const params = request.params.set('key', WEATHER_API_KEY);
 
     switch (request.url) {
-      case WeatherUrls.cities || WeatherUrls.forecast:
+      case WeatherUrls.cities:
+      case WeatherUrls.forecast:
+      case WeatherUrls.location:
         return next.handle(request.clone({ params }));
       default:
         return next.handle(request);

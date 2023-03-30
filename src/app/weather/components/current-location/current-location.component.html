@@ -1,0 +1,4 @@
+<ng-container *ngIf="location$ | async; let location">
+  current city: {{ location.name }}, {{ location.country }}
+  time: {{ location.localtime }}
+</ng-container>

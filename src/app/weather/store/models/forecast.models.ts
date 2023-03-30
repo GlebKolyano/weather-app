@@ -1,21 +1,13 @@
 interface IForecastState {
-  location: IForecastLocation | null;
   forecastDay: IForecastDay[];
   error: string | null;
   isLoading: boolean;
 }
 
 interface IForecastResponse {
-  location: IForecastLocation;
   forecast: {
     forecastday: IForecastDay[];
   };
-}
-
-interface IForecastLocation {
-  name: string;
-  country: string;
-  localtime: string;
 }
 
 interface IForecastDay {
@@ -53,4 +45,4 @@ interface IForecastError {
 }
 
 export { ForecastActions };
-export type { IForecastResponse, IForecastError, IForecastState };
+export type { IForecastResponse, IForecastError, IForecastState, IForecastDay, IForecastHour };

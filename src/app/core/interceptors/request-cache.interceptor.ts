@@ -17,6 +17,7 @@ export class RequestCacheInterceptor implements HttpInterceptor {
   constructor(private cacheService: RequestCacheService) {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    return next.handle(req);
     const permittedApiForCache = Object.values(WeatherUrls) as string[];
 
     if (req.method !== 'GET' && permittedApiForCache.includes(req.url)) {
@@ -25,9 +26,9 @@ export class RequestCacheInterceptor implements HttpInterceptor {
 
     const cachedResponse = this.cacheService.getCachedResponse(req);
 
-    if (cachedResponse) {
-      return of(new HttpResponse({ ...cachedResponse, url: cachedResponse.url! }));
-    }
+    // if (cachedResponse) {
+    //   return of(new HttpResponse({ ...cachedResponse, url: cachedResponse.url! }));
+    // }
 
     return next.handle(req).pipe(
       tap((event) => {

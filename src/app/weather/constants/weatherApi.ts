@@ -1,6 +1,7 @@
 const WEATHER_API_KEY = 'b09733c2d2b1498bbc8104526232903';
 
 enum WeatherUrls {
+  location = 'https://api.weatherapi.com/v1/timezone.json',
   forecast = 'https://api.weatherapi.com/v1/forecast.json',
   cities = 'https://api.weatherapi.com/v1/search.json',
 }

@@ -8,8 +8,8 @@ const forecastReducer = createReducer(
   on(getForecast, (state): IForecastState => {
     return { ...state, isLoading: true };
   }),
-  on(getForecastSuccess, (state): IForecastState => {
-    return { ...state, isLoading: false };
+  on(getForecastSuccess, (state, { forecast: { forecast } }): IForecastState => {
+    return { ...state, isLoading: false, forecastDay: forecast.forecastday };
   }),
   on(getForecastError, (state): IForecastState => {
     return { ...state, isLoading: false };
