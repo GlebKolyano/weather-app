@@ -7,7 +7,7 @@ const MAX_AGE = 7200;
 @Injectable({
   providedIn: 'root',
 })
-export class RequestCacheService {
+export class RequestCachingService {
   private cache = this.localCache ? new Map(this.localCache) : new Map();
 
   constructor(private localService: LocalStorageService) {}
