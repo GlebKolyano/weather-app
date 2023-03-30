@@ -11,7 +11,7 @@ export class WeatherInterceptor implements HttpInterceptor {
     switch (request.url) {
       case WeatherUrls.cities:
       case WeatherUrls.forecast:
-      case WeatherUrls.location:
+      case WeatherUrls.currentForecast:
         return next.handle(request.clone({ params }));
       default:
         return next.handle(request);

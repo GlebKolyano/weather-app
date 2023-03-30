@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { weatherReducer } from './store';
 import { ForecastEffects } from './store/effects/forecast.effects';
-import { LocationEffects } from './store/effects/location.effects';
+import { CurrentForecastEffects } from './store/effects/current-forecast.effects';
 import { CurrentLocationComponent } from './components/current-location/current-location.component';
 import { DailyForecastComponent } from './components/daily-forecast/daily-forecast.component';
 import { HourlyForecastComponent } from './components/hourly-forecast/hourly-forecast.component';
@@ -21,6 +21,7 @@ import { WeatherPageComponent } from './pages/weather-page/weather-page.componen
 import { CalendarModule } from '../calendar/calendar.module';
 import { AuthModule } from '../auth/auth.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { BackgroundImageDirective } from './directives/background-image.directive';
 
 @NgModule({
   declarations: [
@@ -33,9 +34,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     WeatherPageComponent,
   ],
   imports: [
+    BackgroundImageDirective,
     CommonModule,
     StoreModule.forFeature('weather', weatherReducer),
-    EffectsModule.forFeature([CitiesEffects, ForecastEffects, LocationEffects]),
+    EffectsModule.forFeature([CitiesEffects, ForecastEffects, CurrentForecastEffects]),
     CalendarModule,
     AuthModule,
     MatFormFieldModule,

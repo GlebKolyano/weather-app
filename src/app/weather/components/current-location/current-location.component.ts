@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectLocation } from '../../store/selectors/location.selectors';
+import { selectLocation } from '../../store/selectors/current-forecast.selectors';
 
 @Component({
   selector: 'app-current-location',
