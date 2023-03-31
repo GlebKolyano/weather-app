@@ -1,0 +1,32 @@
+:host {
+  height: 100%;
+}
+
+.events-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.event {
+  font-size: 12px;
+  background-color: #00000014;
+  border-bottom: solid 1px #ffffff14;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+  &-time {
+    display: inline-block;
+    background-color: #00000084;
+    padding: 5px;
+  }
+
+  &-title {
+    padding: 5px;
+  }
+}
+
+.warning {
+  font-size: 14px;
+  color: #ffffffce;
+}

@@ -1,9 +1,11 @@
-<div *ngIf="currentForecast$ | async; let currentForecast">
+<div class="current-wrapper" *ngIf="currentForecast$ | async; let currentForecast">
   <img src="{{currentForecast.condition.icon}}" alt="icon">
-  <h4>{{currentForecast.temp_c | degreesCelcius}}</h4>
+  <span class="degrees">{{ currentForecast.temp_c | number:'1.0-0' | degreesCelcius}}</span>
 </div>
-<div *ngIf=" location$ | async; let location">
-  {{ location.name }}, {{ location.country }}
-  {{ location.localtime | date:'fullDate' }},
-  {{ location.localtime | date:'shortTime' }}
+<div *ngIf="location$ | async; let location">
+  <p>{{ location.name }}, {{ location.country }}</p>
+  <p>
+    {{ location.localtime | date:'EEEE, MMMM d' }},
+    {{ location.localtime | date:'shortTime' }}
+  </p>
 </div>
