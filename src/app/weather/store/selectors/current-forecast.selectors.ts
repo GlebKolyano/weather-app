@@ -1,11 +1,16 @@
 import { createSelector } from '@ngrx/store';
 import { selectFeatureWeather } from '..';
 
-import { ILocation } from '../models/current-forecast.models';
+import { ICurrentForecast, ILocation } from '../models/current-forecast.models';
 
 const selectLocation = createSelector(
   selectFeatureWeather,
   ({ currentForecast }): ILocation | null => currentForecast.location,
+);
+
+const selectCurrentForecast = createSelector(
+  selectFeatureWeather,
+  ({ currentForecast }): ICurrentForecast | null => currentForecast.currentForecast,
 );
 
 const selectCurrentForecastConditionCode = createSelector(
@@ -16,4 +21,4 @@ const selectCurrentForecastConditionCode = createSelector(
   },
 );
 
-export { selectLocation, selectCurrentForecastConditionCode };
+export { selectLocation, selectCurrentForecast, selectCurrentForecastConditionCode };

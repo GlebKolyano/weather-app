@@ -1,0 +1,9 @@
+<div *ngIf="currentForecast$ | async; let currentForecast">
+  <img src="{{currentForecast.condition.icon}}" alt="icon">
+  <h4>{{currentForecast.temp_c | degreesCelcius}}</h4>
+</div>
+<div *ngIf=" location$ | async; let location">
+  {{ location.name }}, {{ location.country }}
+  {{ location.localtime | date:'fullDate' }},
+  {{ location.localtime | date:'shortTime' }}
+</div>

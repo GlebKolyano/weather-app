@@ -9,10 +9,12 @@ import { CitySelectorComponent } from './components/city-selector/city-selector.
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
 import { weatherReducer } from './store';
 import { ForecastEffects } from './store/effects/forecast.effects';
 import { CurrentForecastEffects } from './store/effects/current-forecast.effects';
-import { CurrentLocationComponent } from './components/current-location/current-location.component';
+import { CurrentForecastComponent } from './components/current-forecast/current-forecast.component';
 import { DailyForecastComponent } from './components/daily-forecast/daily-forecast.component';
 import { HourlyForecastComponent } from './components/hourly-forecast/hourly-forecast.component';
 import { DayForecastItemComponent } from './components/day-forecast-item/day-forecast-item.component';
@@ -23,17 +25,21 @@ import { AuthModule } from '../auth/auth.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BackgroundImageByCodeDirective } from './directives/background-image-by-code.directive';
 import { BackgroundColorByCodeDirective } from './directives/background-color-by-code.directive';
+import { DegreesCelciusPipe } from './pipes/degrees-celcius.pipe';
+import { ForecastComponent } from './components/forecast/forecast.component';
 
 @NgModule({
   declarations: [
     CitySelectorComponent,
-    CurrentLocationComponent,
+    CurrentForecastComponent,
     DailyForecastComponent,
     HourlyForecastComponent,
     DayForecastItemComponent,
     HourForecastItemComponent,
     WeatherPageComponent,
     BackgroundImageByCodeDirective,
+    DegreesCelciusPipe,
+    ForecastComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +52,7 @@ import { BackgroundColorByCodeDirective } from './directives/background-color-by
     MatInputModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
+    MatButtonToggleModule,
   ],
   providers: [WeatherService],
   exports: [],

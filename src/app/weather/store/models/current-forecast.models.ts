@@ -39,4 +39,10 @@ interface ICurrentForecastError {
 }
 
 export { CurrentForecastActions };
-export type { ICurrentForecastResponse, ICurrentForecastError, ICurrentForecastState, ILocation };
+export type {
+  ICurrentForecastResponse,
+  ICurrentForecastError,
+  ICurrentForecastState,
+  ILocation,
+  ICurrentForecast,
+};
