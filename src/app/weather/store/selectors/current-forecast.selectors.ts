@@ -10,8 +10,8 @@ const selectLocation = createSelector(
 
 const selectCurrentForecastConditionCode = createSelector(
   selectFeatureWeather,
-  ({ currentForecast }): number => {
-    if (currentForecast.currentForecast) return currentForecast.currentForecast?.condition.code;
+  ({ currentForecast: { currentForecast } }): number => {
+    if (currentForecast && currentForecast.condition) return currentForecast.condition.code;
     return 0;
   },
 );

@@ -21,7 +21,8 @@ import { WeatherPageComponent } from './pages/weather-page/weather-page.componen
 import { CalendarModule } from '../calendar/calendar.module';
 import { AuthModule } from '../auth/auth.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { BackgroundImageDirective } from './directives/background-image.directive';
+import { BackgroundImageByCodeDirective } from './directives/background-image-by-code.directive';
+import { BackgroundColorByCodeDirective } from './directives/background-color-by-code.directive';
 
 @NgModule({
   declarations: [
@@ -32,14 +33,15 @@ import { BackgroundImageDirective } from './directives/background-image.directiv
     DayForecastItemComponent,
     HourForecastItemComponent,
     WeatherPageComponent,
+    BackgroundImageByCodeDirective,
   ],
   imports: [
-    BackgroundImageDirective,
     CommonModule,
     StoreModule.forFeature('weather', weatherReducer),
     EffectsModule.forFeature([CitiesEffects, ForecastEffects, CurrentForecastEffects]),
     CalendarModule,
     AuthModule,
+    BackgroundColorByCodeDirective,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,

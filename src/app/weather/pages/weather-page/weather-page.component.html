@@ -1,9 +1,13 @@
-<app-login></app-login>
-<app-events></app-events>
+<div class="container" appBackgroundImageByCode [conditionCode]="currentForecastConditionCode$ | async">
+  <div class="blur-wrapper">
+    <app-login></app-login>
+    <app-events></app-events>
 
-<app-city-selector></app-city-selector>
-<app-current-location></app-current-location>
-DAYS:
-<app-daily-forecast></app-daily-forecast>
-HOURS:
-<app-hourly-forecast></app-hourly-forecast>
+    <app-city-selector></app-city-selector>
+    <app-current-location></app-current-location>
+    DAYS:
+    <app-daily-forecast></app-daily-forecast>
+    HOURS:
+    <app-hourly-forecast></app-hourly-forecast>
+  </div>
+</div>

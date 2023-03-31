@@ -15,7 +15,7 @@ export class EventsEffects {
         return this.calendarService.getEvents().pipe(
           map((events) => getEventsSuccess({ events })),
           catchError((error: IEventsError) => {
-            if (error.status === 401) this.authService.authState$.next(false);
+            if (error.status === 401) this.authService.signOut();
             return of(getEventsError({ error }));
           }),
         );

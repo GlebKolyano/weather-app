@@ -45,8 +45,10 @@ export class CitySelectorComponent implements OnInit, OnDestroy {
 
   private sendRequestsByUserPosition(): void {
     this.geolocationService.cityOfUser.pipe(takeUntil(this.destroy$)).subscribe((city) => {
-      this.cityInput.setValue(city);
-      this.onSelectOption(city);
+      if (city) {
+        this.cityInput.setValue(city);
+        this.onSelectOption(city);
+      }
     });
   }
 
