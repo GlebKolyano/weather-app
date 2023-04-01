@@ -10,9 +10,13 @@ const selectDailyForecast = createSelector(
 const selectHourlyForecastForToday = createSelector(
   selectFeatureWeather,
   ({ forecast }): IForecastHour[] => {
-    if (forecast.forecastDays.length) return forecast.forecastDays[0].hour.slice(0, 7);
+    if (forecast.forecastDays.length) return forecast.forecastDays[0].hour;
     return [];
   },
 );
 
-export { selectDailyForecast, selectHourlyForecastForToday };
+const selectForecastIsLoading = createSelector(selectFeatureWeather, ({ forecast }): boolean => {
+  return forecast.isLoading;
+});
+
+export { selectDailyForecast, selectHourlyForecastForToday, selectForecastIsLoading };

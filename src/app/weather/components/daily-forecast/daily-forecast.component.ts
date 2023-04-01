@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectDailyForecast } from '../../store/selectors/forecast.selectors';
+import {
+  selectDailyForecast,
+  selectForecastIsLoading,
+} from '../../store/selectors/forecast.selectors';
 
 @Component({
   selector: 'app-daily-forecast',
@@ -9,6 +12,8 @@ import { selectDailyForecast } from '../../store/selectors/forecast.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DailyForecastComponent {
-  public daysForecast$ = this.store.select(selectDailyForecast);
+  public dailyForecast$ = this.store.select(selectDailyForecast);
+  public isLoading$ = this.store.select(selectForecastIsLoading);
+
   constructor(private store: Store) {}
 }

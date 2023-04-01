@@ -13,6 +13,11 @@ const selectCurrentForecast = createSelector(
   ({ currentForecast }): ICurrentForecast | null => currentForecast.currentForecast,
 );
 
+const selectCurrentForecastLoading = createSelector(
+  selectFeatureWeather,
+  ({ currentForecast }): boolean => currentForecast.isLoading,
+);
+
 const selectCurrentForecastConditionCode = createSelector(
   selectFeatureWeather,
   ({ currentForecast: { currentForecast } }): number => {
@@ -21,4 +26,9 @@ const selectCurrentForecastConditionCode = createSelector(
   },
 );
 
-export { selectLocation, selectCurrentForecast, selectCurrentForecastConditionCode };
+export {
+  selectLocation,
+  selectCurrentForecast,
+  selectCurrentForecastConditionCode,
+  selectCurrentForecastLoading,
+};
