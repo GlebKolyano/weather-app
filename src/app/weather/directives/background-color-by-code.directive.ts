@@ -10,7 +10,7 @@ import {
   SUNNY_AND_CLOUDY,
   THUNDERSTORMY,
 } from '../constants/background-codes';
-import { BackgroundColors } from '../constants/background.models';
+import { BackgroundColors } from '../models/background.models';
 
 @Directive({
   selector: '[appBackgroundColorByCode]',
