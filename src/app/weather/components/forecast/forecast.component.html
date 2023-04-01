@@ -1,0 +1,9 @@
+<mat-button-toggle-group class="toggle-wrapper" [formControl]="enabledTypeForecast">
+  <mat-button-toggle class="toggle-button" *ngFor="let type of typesForecast" [value]="type">{{ type | titlecase
+    }}</mat-button-toggle>
+</mat-button-toggle-group>
+
+<app-daily-forecast *ngIf="enabledTypeForecast.value === typesForecast[0]; else hourly"></app-daily-forecast>
+<ng-template #hourly>
+  <app-hourly-forecast></app-hourly-forecast>
+</ng-template>
