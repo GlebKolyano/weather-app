@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { getEvents } from '../../store/events.actions';
 import { selectEvents } from '../../store/events.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-events',
@@ -15,9 +16,13 @@ export class EventsComponent implements OnInit {
 
   constructor(private authService: AuthService, private store: Store) {}
 
-  ngOnInit(): void {
-    this.authService.authState$.subscribe((isAuthorized) => {
+  public ngOnInit(): void {
+    this.authService.isUserAuthorized$.subscribe((isAuthorized) => {
       if (isAuthorized) this.store.dispatch(getEvents());
     });
+  }
+
+  public isLoggedIn(): Observable<boolean> {
+    return this.authService.isAuthorized();
   }
 }

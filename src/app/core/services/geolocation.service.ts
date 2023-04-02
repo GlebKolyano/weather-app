@@ -18,7 +18,7 @@ export class GeolocationService {
     return this._cityOfUser.asObservable();
   }
 
-  public determineUserPosition(): Observable<IGeolocationResponse> {
+  private determineUserPosition(): Observable<IGeolocationResponse> {
     return this.httpClient.get<IGeolocationResponse>(GEOLOCATION_URL);
   }
 }

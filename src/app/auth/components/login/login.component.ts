@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -9,10 +9,10 @@ import { AuthService } from '../../services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
-  public isLoggedIn(): BehaviorSubject<boolean> {
-    return this.authService.authState$;
+  public isLoggedIn(): Observable<boolean> {
+    return this.authService.isAuthorized();
   }
 
   public signOut() {

@@ -10,16 +10,16 @@ import {
 import { Observable, of, tap } from 'rxjs';
 
 import { RequestCachingService } from '../services/request-caching.service';
-import { WeatherUrls } from 'src/app/weather/constants/weather-api';
+import { CachedWeatherUrls } from 'src/app/weather/constants/weather-api';
 
 @Injectable()
 export class RequestCachingInterceptor implements HttpInterceptor {
   constructor(private cacheService: RequestCachingService) {}
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const permittedApiForCache = Object.values(WeatherUrls) as string[];
+    const permittedApiForCache = Object.values(CachedWeatherUrls) as string[];
 
-    if (req.method !== 'GET' && permittedApiForCache.includes(req.url)) {
+    if (req.method !== 'GET' || !permittedApiForCache.includes(req.url)) {
       return next.handle(req);
     }
 

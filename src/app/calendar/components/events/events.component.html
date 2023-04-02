@@ -1,9 +1,11 @@
 <div class="events-wrapper" *ngIf="(events$ | async)!.length > 0; else notFoundEvents">
-  <div class="event" *ngFor="let event of events$ | async">
-    <span class="event-time">{{ event.start.dateTime | date:'shortTime' }}</span>
-    <span class="event-title">{{ event.summary }}</span>
+  <div class="event" *ngFor="let event of events$ | async; let index=index; let even=even">
+    <ng-container *ngIf="even">
+      <span class="event-time">{{ event.start.dateTime | date:'shortTime' }}</span>
+      <span class="event-title">{{ event.summary }}</span>
+    </ng-container>
   </div>
 </div>
 <ng-template #notFoundEvents>
-  <p class="warning">There are no events in the next 3 days</p>
+  <p *ngIf="isLoggedIn() | async" class="warning">There are no events in the next few days</p>
 </ng-template>

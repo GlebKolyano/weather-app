@@ -1,5 +1,6 @@
 :host {
-  height: 100%;
+  height: calc(30px * 4);
+  overflow: auto;
 }
 
 .events-wrapper {

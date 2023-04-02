@@ -1,3 +1,4 @@
 const FORECAST_TYPES = ['daily', 'hourly'];
+const MAX_AMOUNT_HOURLY_FORECAST = 7;
 
-export { FORECAST_TYPES };
+export { FORECAST_TYPES, MAX_AMOUNT_HOURLY_FORECAST };

@@ -11,6 +11,7 @@ import {
   THUNDERSTORMY,
 } from '../constants/background-codes';
 import { BackgroundImages } from '../models/background.models';
+import getSrcBackgroundImageProperty from '../utils/getSrcBackgroundImageProperty';
 
 @Directive({
   selector: '[appBackgroundImageByCode]',
@@ -30,7 +31,7 @@ export class BackgroundImageByCodeDirective {
   }
 
   private setSrcBackgroundImageValue(imageName: string): void {
-    this.srcBackgroundImage = `url(../../../../assets/weather-img/${imageName}.webp) 100% center / cover no-repeat`;
+    this.srcBackgroundImage = getSrcBackgroundImageProperty(imageName);
   }
 
   private getImageNameByCode(code: number): BackgroundImages {

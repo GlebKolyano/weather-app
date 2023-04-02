@@ -1,0 +1,3 @@
+const MAX_AGE_CACHING = 7200;
+
+export { MAX_AGE_CACHING };

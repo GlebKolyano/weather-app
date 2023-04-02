@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { weatherReducer } from './store';
 import { ForecastEffects } from './store/effects/forecast.effects';
@@ -28,6 +29,8 @@ import { BackgroundColorByCodeDirective } from './directives/background-color-by
 import { DegreesCelciusPipe } from './pipes/degrees-celcius.pipe';
 import { ForecastComponent } from './components/forecast/forecast.component';
 
+import { FilterHourlyForecastPipe } from './pipes/filter-hourly-forecast.pipe';
+
 @NgModule({
   declarations: [
     CitySelectorComponent,
@@ -40,6 +43,7 @@ import { ForecastComponent } from './components/forecast/forecast.component';
     BackgroundImageByCodeDirective,
     DegreesCelciusPipe,
     ForecastComponent,
+    FilterHourlyForecastPipe,
   ],
   imports: [
     CommonModule,
@@ -53,8 +57,8 @@ import { ForecastComponent } from './components/forecast/forecast.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatButtonToggleModule,
+    MatProgressSpinnerModule,
   ],
   providers: [WeatherService],
-  exports: [],
 })
 export class WeatherModule {}
