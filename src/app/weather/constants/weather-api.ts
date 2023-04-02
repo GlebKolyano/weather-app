@@ -1,4 +1,4 @@
-const WEATHER_API_KEY = 'b09733c2d2b1498bbc8104526232903';
+const WEATHER_API_KEY = '7719a00297f742a4b8675400230204';
 
 enum WeatherUrls {
   currentForecast = 'https://api.weatherapi.com/v1/current.json',

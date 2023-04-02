@@ -10,8 +10,8 @@ const DEFAULT_EVENTS_PARAMS = {
   orderBy: 'startTime',
   singleEvents: true,
   showDeleted: false,
-  timeMin: '2023-03-01T13:01:21.826Z' || new Date().toISOString(),
-  maxResults: 5,
+  timeMin: new Date().toISOString(),
+  maxResults: 10,
 };
 
 export { CalendarUrls, CalendarApiEndpoints, DEFAULT_EVENTS_PARAMS };

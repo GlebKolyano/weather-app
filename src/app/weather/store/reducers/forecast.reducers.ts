@@ -6,7 +6,7 @@ import { initForecastState } from '../state/forecast.state';
 const forecastReducer = createReducer(
   initForecastState,
   on(getForecast, (state): IForecastState => {
-    return { ...state, isLoading: true };
+    return { ...state, isLoading: true, forecastDays: [] };
   }),
   on(getForecastSuccess, (state, { forecast: { forecast } }): IForecastState => {
     return { ...state, isLoading: false, forecastDays: forecast.forecastday };

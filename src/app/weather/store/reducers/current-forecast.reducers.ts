@@ -6,11 +6,15 @@ import {
 } from '../actions/current-forecast.actions';
 import { ICurrentForecastState } from '../models/current-forecast.models';
 import { initCurrentForecastState } from '../state/current-forecast.state';
+import { getForecast } from '../actions/forecast.actions';
 
 const currentForecastReducer = createReducer(
   initCurrentForecastState,
   on(getCurrentForecast, (state): ICurrentForecastState => {
-    return { ...state, isLoading: true };
+    return { ...state, isLoading: true, currentForecast: null, location: null };
+  }),
+  on(getForecast, (state): ICurrentForecastState => {
+    return { ...state, isLoading: true, currentForecast: null, location: null };
   }),
   on(
     getCurrentForecastSuccess,

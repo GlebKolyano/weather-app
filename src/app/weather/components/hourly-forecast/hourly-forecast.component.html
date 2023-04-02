@@ -1,3 +1,3 @@
-<app-hour-forecast-item *ngFor="let hourForecast of hourlyForecast$ | async"
+<app-hour-forecast-item *ngFor="let hourForecast of hourlyForecast$ | async | filterHourlyForecast"
   [hourForecast]="hourForecast"></app-hour-forecast-item>
-<mat-spinner *ngIf="isLoading$ | async" [diameter]="70"></mat-spinner>
+<mat-spinner *ngIf="isLoading$ | async" [diameter]="60"></mat-spinner>
