@@ -1,0 +1,6 @@
+<button *ngIf="isLoggedIn() | async; else isNotLogged" (click)=" signOut()" mat-flat-button color="warn">
+  Sign Out
+</button>
+<ng-template #isNotLogged>
+  <button (click)="signIn()" mat-flat-button color="primary">Sign In</button>
+</ng-template>

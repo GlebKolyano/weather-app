@@ -1,0 +1,21 @@
+@mixin flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host {
+  padding: 1rem;
+  column-gap: 8px;
+  flex: 2;
+}
+
+:host,
+.current-wrapper {
+  @include flex-box;
+}
+
+.degrees {
+  font-size: 70px;
+  font-style: bold;
+}

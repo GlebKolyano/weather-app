@@ -1,0 +1,13 @@
+<div class="background-image" appBackgroundImageByCode [conditionCode]="currentForecastConditionCode$ | async">
+  <div class="blur-wrapper">
+    <section class="header">
+      <app-city-selector></app-city-selector>
+      <app-login></app-login>
+    </section>
+    <section class="content">
+      <app-current-forecast></app-current-forecast>
+      <app-events></app-events>
+    </section>
+    <app-forecast></app-forecast>
+  </div>
+</div>

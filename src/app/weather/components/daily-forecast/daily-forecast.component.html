@@ -1,0 +1,2 @@
+<app-day-forecast-item *ngFor="let dayForecast of dailyForecast$ | async " [dayForecast]="dayForecast"></app-day-forecast-item>
+<mat-spinner *ngIf="isLoading$ | async" [diameter]="60"></mat-spinner>

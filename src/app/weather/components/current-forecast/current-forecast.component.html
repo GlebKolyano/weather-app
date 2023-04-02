@@ -1,0 +1,12 @@
+<div class="current-wrapper" *ngIf="currentForecast$ | async; let currentForecast">
+  <img src="{{currentForecast.condition.icon}}" alt="icon">
+  <span class="degrees">{{ currentForecast.temp_c | number:'1.0-0' | degreesCelcius}}</span>
+</div>
+<div *ngIf="location$ | async; let location">
+  <p>{{ location.name }}, {{ location.country }}</p>
+  <p>
+    {{ location.localtime | date:'EEEE, MMMM d' }},
+    {{ location.localtime | date:'shortTime' }}
+  </p>
+</div>
+<mat-spinner *ngIf="isLoading$ | async" [diameter]="50"></mat-spinner>
